@@ -1,0 +1,57 @@
+{
+  "templates": [
+    {
+      "blueprint": {
+        "actions": [
+          {
+            "template": "{user} の運勢: {choice:大吉,中吉,小吉,末吉,凶}",
+            "type": "reply"
+          }
+        ],
+        "conditions": [{ "type": "always" }],
+        "name": "omikuji",
+        "trigger": { "command": "omikuji", "type": "slash" }
+      },
+      "description": "実行するたびに運勢をランダムで返す",
+      "id": "omikuji",
+      "name": "おみくじ"
+    },
+    {
+      "blueprint": {
+        "actions": [
+          { "amount": 1, "key": "visits", "type": "incrementCounter" },
+          { "template": "{user} は {count:visits} 回目", "type": "reply" }
+        ],
+        "conditions": [{ "type": "always" }],
+        "name": "visit",
+        "trigger": { "command": "visit", "type": "slash" }
+      },
+      "description": "実行回数を数えて表示する",
+      "id": "visit-counter",
+      "name": "訪問カウンター"
+    },
+    {
+      "blueprint": {
+        "actions": [
+          {
+            "channelId": "0",
+            "template": "{messageUrl} が {reactionCount} 件のリアクションに達しました",
+            "type": "sendToChannel"
+          }
+        ],
+        "conditions": [{ "type": "always" }],
+        "name": "reaction-star",
+        "trigger": {
+          "channelId": "0",
+          "template": "{messageUrl} が {reactionCount} 件のリアクションに達しました",
+          "threshold": 5,
+          "type": "reaction"
+        }
+      },
+      "description": "リアクションが5件に達したら通知する",
+      "id": "reaction-star",
+      "name": "リアクション達成通知"
+    }
+  ],
+  "version": 1
+}

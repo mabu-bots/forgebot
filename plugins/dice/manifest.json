@@ -1,0 +1,7 @@
+{
+  "description": "サイコロの条件とアクションを提供する",
+  "name": "dice",
+  "permissions": [],
+  "provides": { "actions": ["rollDice"], "conditions": ["diceAtLeast"] },
+  "version": "1.0.0"
+}
