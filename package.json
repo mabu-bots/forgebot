@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "discord.js": "^14.25.1"
+  },
+  "description": "FORGE — ユーザーが自分でコマンドと自動化を作れる公開 Discord Bot",
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.6",
+    "typescript": "^7.0.2"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "name": "forgebot",
+  "private": true,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "register": "tsx src/register.ts",
+    "start": "node dist/src/index.js",
+    "test": "tsx --test test/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "type": "module",
+  "version": "1.0.0"
+}
